@@ -15,17 +15,21 @@ public class RemovingDuplicateCharacters {
 		String output = Arrays.asList(s.split("")).stream().distinct().collect(Collectors.joining());
 
 		System.out.println(output);
-		
-		Map<Character, Long> map=s.chars().mapToObj(c->(char)c).collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
-		
-		System.out.println(map);
-		
-		map.forEach((character,count)->{
-			if(count>1) {
-				System.out.println("Character "+character+" duplicate"+count+" times");
+
+		System.out.println("Repeated characters count");
+		Map<Character, Long> map = s.chars().mapToObj(c -> (char) c)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		//System.out.println(map);
+		map.forEach((character, count) -> {
+			if (count > 1) {
+				System.out.println("character " + character + " repeate " + count + " times");
 			}
 		});
+		System.out.println("occurances of each characters in java");
 
+		Map<Character, Long> map1 = s.chars().mapToObj(c -> (char) c)
+				.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+		map1.forEach((character, count) -> System.out.println("character " + character + "=" + count));
 	}
 
 }
